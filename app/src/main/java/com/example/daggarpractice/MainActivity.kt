@@ -8,8 +8,7 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var car: Car
-    @Inject
-    lateinit var car1: Car
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -17,6 +16,5 @@ class MainActivity : AppCompatActivity() {
         var carComponent = DaggerCarComponent.create()
         carComponent.inject(this)
         car.start()
-        car1.start()
     }
 }
