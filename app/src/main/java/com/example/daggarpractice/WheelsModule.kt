@@ -6,10 +6,21 @@ import dagger.Provides
 @Module
 class WheelsModule {
 
+    @Provides
+    fun providesRims(): Rims {
+        System.out.println("rims created")
+        return Rims()
+    }
 
     @Provides
-    fun providesWheels(): Wheels {
+    fun providesTires(): Tires {
+        System.out.println("tires created")
+        return Tires()
+    }
+
+    @Provides
+    fun providesWheels(rims: Rims, tires: Tires): Wheels {
         System.out.println("Wheels module")
-        return Wheels()
+        return Wheels(rims, tires)
     }
 }
