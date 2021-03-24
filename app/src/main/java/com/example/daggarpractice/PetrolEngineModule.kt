@@ -5,8 +5,14 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-abstract class PetrolEngineModule {
+class PetrolEngineModule {
 
-    @Binds
-    abstract fun povidesPetrolEngine(petrolEngine: PetrolEngine): Engine
+    var powerCapacity: Int
+    constructor(powerCapacity: Int) {
+        this.powerCapacity = powerCapacity
+    }
+    @Provides
+    fun povidesPetrolEngine(): Engine {
+        return PetrolEngine(powerCapacity)
+    }
 }
