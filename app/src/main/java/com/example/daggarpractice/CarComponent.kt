@@ -2,6 +2,7 @@ package com.example.daggarpractice
 
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Named
 
 @Component(modules = [PetrolEngineModule::class, WheelsModule::class])
 interface CarComponent {
@@ -13,7 +14,10 @@ interface CarComponent {
     interface Builder {
 
         @BindsInstance
-        fun powerCapacity(powerCapacity: Int): Builder
+        fun powerCapacity(@Named("power")powerCapacity: Int): Builder
+
+        @BindsInstance
+        fun engineCapacity(@Named("engine")engineCapacity: Int): Builder
 
         fun build(): CarComponent
     }

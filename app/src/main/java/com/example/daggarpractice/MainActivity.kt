@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         var carComponent = DaggerCarComponent.builder()
             .powerCapacity(300)
+            .engineCapacity(1000)
             .build()
         carComponent.inject(this)
         car.start()

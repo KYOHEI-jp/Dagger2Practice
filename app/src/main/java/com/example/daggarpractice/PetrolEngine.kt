@@ -1,6 +1,7 @@
 package com.example.daggarpractice
 
 import javax.inject.Inject
+import javax.inject.Named
 
 class PetrolEngine: Engine {
 
@@ -8,7 +9,7 @@ class PetrolEngine: Engine {
     var engineCapacity: Int
 
     @Inject
-    constructor(powerCapacity: Int, engineCapacity: Int) {
+    constructor(@Named("power")powerCapacity: Int, @Named("engine")engineCapacity: Int) {
         this.powerCapacity = powerCapacity
         this.engineCapacity = engineCapacity
     }
