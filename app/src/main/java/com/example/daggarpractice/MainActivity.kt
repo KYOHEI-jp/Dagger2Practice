@@ -6,18 +6,21 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
+    //@Inject
     lateinit var car: Car
+
+    //@Inject
+    lateinit var car1: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var carComponent = DaggerCarComponent.builder()
-            .powerCapacity(300)
-            .engineCapacity(1000)
-            .build()
-        carComponent.inject(this)
+        var carComponent = (application as ExampleApp).carComponent()
+
+        car = carComponent.getCar()
+
         car.start()
+        car1.start()
     }
 }

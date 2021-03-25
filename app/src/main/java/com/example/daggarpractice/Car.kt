@@ -5,12 +5,13 @@ import javax.inject.Inject
 class Car {
     lateinit var wheels: Wheels
     lateinit var engine: Engine
-
+    lateinit var driver: Driver
 
     @Inject
-    constructor(wheels: Wheels, engine: Engine) {
-        this.wheels = wheels
+    constructor(engine: Engine, driver: Driver) {
         this.engine = engine
+        this.driver = driver
+
     }
 
     @Inject
@@ -19,7 +20,8 @@ class Car {
     }
 
     fun start() {
-        engine.start()
-        System.out.println("driving.....")
+        System.out.println("Driver: " + driver)
+//        engine.start()
+//        System.out.println("driving.....")
     }
 }
